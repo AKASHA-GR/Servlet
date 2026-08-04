@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 @WebServlet(urlPatterns = "/vehicle",loadOnStartup = 1)
 public class VehicleServlet extends HttpServlet {
     
-    private static final Pattern VEHICLE_NUMBER_PATTERN = 
+    private static final Pattern VEHICLE_NUMBER_PATTERN =
         Pattern.compile("^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$");
-    
-    private static final String[] VALID_FUEL_TYPES = 
+
+    private static final String[] VALID_FUEL_TYPES =
         {"PETROL", "DIESEL", "CNG", "ELECTRIC", "HYBRID", "LPG"};
 
     @Override
@@ -32,6 +32,10 @@ public class VehicleServlet extends HttpServlet {
         String date = req.getParameter("date");
         String insurance = req.getParameter("insurance");
         String fuel = req.getParameter("fuel");
+
+        System.out.println("Raw number: '" + number + "'");
+        System.out.println("Trimmed number: '" + number.trim() + "'");
+        System.out.println("Uppercase number: '" + number.trim().toUpperCase() + "'");
 
         StringBuilder errors = new StringBuilder();
 
@@ -69,13 +73,13 @@ public class VehicleServlet extends HttpServlet {
         out.println("<html>");
         out.println("<body>");
         out.println("<h1>Vehicle Registration</h1>");
-        
+
         if (errors.length() > 0) {
             out.println("<div style='color: red;'>");
             out.println("<h3>Validation Errors:</h3>");
             out.println(errors.toString());
             out.println("</div>");
-            out.println("<br><a href='/Vehicle.html'>Go Back</a>");
+            out.println("<br><a href='Vehicle.html'>Go Back</a>");
         } else {
             out.println("<div style='color: green;'>");
             out.println("<h3>Vehicle Registered Successfully!</h3>");
@@ -86,7 +90,7 @@ public class VehicleServlet extends HttpServlet {
             out.println("<p><strong>Insurance Valid Till:</strong> " + insurance + "</p>");
             out.println("<p><strong>Fuel Type:</strong> " + fuel.toUpperCase() + "</p>");
             out.println("</div>");
-            out.println("<br><a href='/Vehicle.html'>Register Another Vehicle</a>");
+            out.println("<br><a href='Vehicle.html'>Register Another Vehicle</a>");
         }
         
         out.println("</body>");
@@ -95,7 +99,11 @@ public class VehicleServlet extends HttpServlet {
     }
 
     private boolean isValidVehicleNumber(String number) {
-        return VEHICLE_NUMBER_PATTERN.matcher(number).matches();
+        System.out.println("Pattern: " + VEHICLE_NUMBER_PATTERN.pattern());
+        System.out.println("Input: " + number);
+        boolean matches = VEHICLE_NUMBER_PATTERN.matcher(number).matches();
+        System.out.println("Matches: " + matches);
+        return matches;
     }
 
     private boolean isFutureDate(String dateStr) {
