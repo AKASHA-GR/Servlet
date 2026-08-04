@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
 
-@WebServlet("/vehicle")
+@WebServlet(urlPatterns = "/vehicle",loadOnStartup = 1)
 public class VehicleServlet extends HttpServlet {
     
     private static final Pattern VEHICLE_NUMBER_PATTERN = 
