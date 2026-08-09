@@ -105,8 +105,12 @@
         <p>Don't have an account? <a href="register.jsp">Register here</a></p>
     </div>
 
+<<<<<<< HEAD
     <span style = "color: green;">${message}</span>
 
+=======
+    
+>>>>>>> 8dfee299acc9d30c194653c80ca4c2d7e61522cc
 </body>
 </html>
 
