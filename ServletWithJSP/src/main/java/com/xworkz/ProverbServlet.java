@@ -1,4 +1,4 @@
-package org.xworkz;
+package com.xworkz;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

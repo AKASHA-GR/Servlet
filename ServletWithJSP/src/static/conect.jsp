@@ -105,15 +105,7 @@
         <p>Don't have an account? <a href="register.jsp">Register here</a></p>
     </div>
 
-    <%
-        String message = (String) request.getAttribute("message");
-        String messageType = (String) request.getAttribute("messageType");
-    %>
-    <% if (message != null) { %>
-        <div class="message <%= messageType != null ? messageType : "success" %>">
-            <%= message %>
-        </div>
-    <% } %>
+    <span style = "color: green;">${message}</span>
 
 </body>
 </html>

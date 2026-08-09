@@ -72,10 +72,6 @@
         <input type="submit" value="Register">
     </form>
 
-    <% String message = (String) request.getAttribute("message"); %>
-        <% if (message != null) { %>
-            <p style="color: green;"><%= message %></p>
-    <% } %>
-
+    <span style = "color: green;">${message}</span>
 </body>
 </html>
