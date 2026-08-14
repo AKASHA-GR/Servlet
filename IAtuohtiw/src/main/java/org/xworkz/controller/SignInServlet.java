@@ -1,6 +1,8 @@
 package org.xworkz.controller;
 
 import org.xworkz.dto.SignInDTO;
+import org.xworkz.services.SingInService;
+import org.xworkz.services.impl.SingInServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,18 +17,20 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
+        String userName = req.getParameter("username");
         String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        String mobile = req.getParameter("mobile");
 
 
-        SignInDTO signInDTO = new SignInDTO(name,email,password,mobile);
-        System.out.println(name+" "+email+" "+password+" "+mobile);
+
+        SignInDTO signInDTO = new SignInDTO(userName,email);
+        System.out.println(signInDTO);
+
+        SingInService singInService = new SingInServiceImpl();
+        boolean isValid = singInService.validateAndSave(userName,email);
 
         req.setAttribute("message","You signIn successfully.");
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("signIn.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("SignIn.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

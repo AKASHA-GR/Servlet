@@ -1,6 +1,8 @@
 package org.xworkz.controller;
 
 import org.xworkz.dto.FeedBackDTO;
+import org.xworkz.services.FeedBackService;
+import org.xworkz.services.impl.FeedBackServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,11 +24,14 @@ public class FeedBackServlet extends HttpServlet {
         String comment = req.getParameter("comment");
 
         FeedBackDTO feedBackDTO = new FeedBackDTO(name,email,Long.parseLong(mobile),comment);
-        System.out.println(name+" "+email+" "+mobile+" "+comment);
+        System.out.println(feedBackDTO);
+
+        FeedBackService feedBackService = new FeedBackServiceImpl();
+        boolean isValid = feedBackService.ValidateAndSave(name,email,comment);
 
         req.setAttribute("message","Thank you for your feedback, " + name + "! We appreciate your input.");
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("feedback.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("Feedback.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

@@ -10,10 +10,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 
 public class SignInDTO implements Serializable{
-    private String name;
+    private String userName;
     private String email;
-    private String password;
-    private String mobileNumber;
+
 
 
 }
