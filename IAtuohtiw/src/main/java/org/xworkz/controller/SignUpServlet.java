@@ -37,6 +37,8 @@ public class SignUpServlet extends HttpServlet {
 
         req.setAttribute("message","You signUp successfully.");
 
+req.setAttribute("Hi","I am AKASHA G R");
+
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("Signup.jsp");
         requestDispatcher.forward(req,resp);
