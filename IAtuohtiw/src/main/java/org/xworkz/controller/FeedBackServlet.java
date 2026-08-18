@@ -29,7 +29,10 @@ public class FeedBackServlet extends HttpServlet {
         FeedBackService feedBackService = new FeedBackServiceImpl();
         boolean isValid = feedBackService.ValidateAndSave(name,email,comment);
 
-        req.setAttribute("message","Thank you for your feedback, " + name + "! We appreciate your input.");
+        req.setAttribute("message","Thank you for your feedback! We appreciate your input.");
+
+
+
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("Feedback.jsp");
         requestDispatcher.forward(req,resp);
