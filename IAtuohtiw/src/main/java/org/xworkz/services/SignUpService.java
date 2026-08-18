@@ -1,5 +1,9 @@
 package org.xworkz.services;
 
+import org.xworkz.dto.SignInDTO;
+import org.xworkz.dto.SignUpDTO;
+import org.xworkz.entity.SignInEntity;
+
 public interface SignUpService {
-    public boolean validateAndSave(String userID, String email, String password, String confirmPassword);
+    public boolean validateAndSave(SignUpDTO signUpDTO);
 }

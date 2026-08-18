@@ -26,7 +26,7 @@ public class SignInServlet extends HttpServlet {
         System.out.println(signInDTO);
 
         SingInService singInService = new SingInServiceImpl();
-        boolean isValid = singInService.validateAndSave(userName,email);
+        boolean isValid = singInService.validateAndSave(userName);
 
         req.setAttribute("message","You signIn successfully.");
 

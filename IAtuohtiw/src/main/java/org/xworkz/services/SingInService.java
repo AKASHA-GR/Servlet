@@ -1,5 +1,8 @@
 package org.xworkz.services;
 
+import org.xworkz.dto.SignInDTO;
+
 public interface SingInService {
-    public boolean validateAndSave(String userName, String email);
+    public boolean validateAndSave(SignInDTO signInDTO
+    );
 }

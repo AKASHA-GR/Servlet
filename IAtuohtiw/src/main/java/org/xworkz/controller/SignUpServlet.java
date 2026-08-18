@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
 @WebServlet("/signup")
 public class SignUpServlet extends HttpServlet {
 
@@ -33,7 +27,7 @@ public class SignUpServlet extends HttpServlet {
         System.out.println(signUpDTO);
 
         SignUpService signUpService = new SingUpServiceImpl();
-        boolean isValid = signUpService.validateAndSave(user,email,password,conformPasswoed);
+        boolean isValid = signUpService.validateAndSave(user);
 
         req.setAttribute("message","You signUp successfully.");
 

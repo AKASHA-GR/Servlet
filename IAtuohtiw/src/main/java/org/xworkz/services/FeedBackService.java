@@ -1,5 +1,7 @@
 package org.xworkz.services;
 
+import org.xworkz.dto.FeedBackDTO;
+
 public interface FeedBackService {
-    public boolean ValidateAndSave(String name, String email, String feedback);
+    public boolean ValidateAndSave(FeedBackDTO feedBackDTO);
 }
