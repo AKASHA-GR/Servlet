@@ -12,6 +12,11 @@
         <input type = "submit" value = "submit">
     </form>
 
+     <h1>${signup}</h1>
+
+
     <p>${message} </p>
+
+
 </body>
 </html>

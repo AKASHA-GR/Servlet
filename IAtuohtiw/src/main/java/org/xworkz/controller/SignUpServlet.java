@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/signup")
@@ -27,9 +28,12 @@ public class SignUpServlet extends HttpServlet {
         System.out.println(signUpDTO);
 
         SignUpService signUpService = new SingUpServiceImpl();
-        boolean isValid = signUpService.validateAndSave(user);
+        boolean isValid = signUpService.validateAndSave(signUpDTO);
 
         req.setAttribute("message","You signUp successfully.");
+
+        HttpSession session = req.getSession();
+        session.setAttribute("signup", "i am Akasha,this is SignUp page");
 
 req.setAttribute("Hi","I am AKASHA G R");
 

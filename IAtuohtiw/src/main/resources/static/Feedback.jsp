@@ -13,5 +13,8 @@
     </form>
 
     <p>${message}</p>
-</dody>
+
+
+    <p>${feed}</p>
+</body>
 </html>
