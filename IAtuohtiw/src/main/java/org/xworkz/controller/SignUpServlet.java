@@ -32,8 +32,8 @@ public class SignUpServlet extends HttpServlet {
 
         req.setAttribute("message","You signUp successfully.");
 
-        HttpSession session = req.getSession();
-        session.setAttribute("signup", "i am Akasha,this is SignUp page");
+//        HttpSession session = req.getSession();
+//        session.setAttribute("signup", "i am Akasha,this is SignUp page");
 
 req.setAttribute("Hi","I am AKASHA G R");
 

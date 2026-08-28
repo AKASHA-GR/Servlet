@@ -30,8 +30,8 @@ public class FeedBackServlet extends HttpServlet {
         FeedBackService feedBackService = new FeedBackServiceImpl();
         boolean isValid = feedBackService.ValidateAndSave(feedBackDTO);
 
-        HttpSession session = req.getSession();
-        session.setAttribute("feed", "i am Akasha,this is FeedBack page");
+//        HttpSession session = req.getSession();
+//        session.setAttribute("feed", "i am Akasha,this is FeedBack page");
 
 
         req.setAttribute("message","Thank you for your feedback! We appreciate your input.");

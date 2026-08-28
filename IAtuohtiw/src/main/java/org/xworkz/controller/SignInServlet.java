@@ -30,13 +30,13 @@ public class SignInServlet extends HttpServlet {
         boolean isValid = singInService.validateAndSave(signInDTO);
 
         HttpSession session = req.getSession();
-        session.setAttribute("userName", "i am Akasha,this is SignIn page");
+        session.setAttribute("userName", userName);
 
 
         req.setAttribute("message","You signIn successfully.");
 
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("SignIn.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("home.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
